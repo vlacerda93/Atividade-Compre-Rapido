@@ -30,7 +30,7 @@
     <section class="hero">
       <h1>Relatório de Eng. de Arquitetura & DevOps</h1>
       <p class="subtitle">Análise de Gargalo, Diagnóstico Monolítico e Proposta de Escalabilidade Horizontal para o E-commerce <strong>Compre Rápido</strong>.</p>
-      
+
       <div class="status-card error">
         <div class="status-indicator"></div>
         <div>
@@ -44,7 +44,7 @@
     <section id="problema" class="card">
       <h2>1. O Problema: A Falha na Black Friday</h2>
       <p>A plataforma <strong>Compre Rápido</strong> operava sob uma arquitetura monolítica tradicional hospedada em um único servidor. Com o aumento repentino do tráfego na Black Friday, a CPU do servidor atingiu 100% de utilização, resultando em indisponibilidade total do sistema e perda de vendas.</p>
-      
+
       <div class="grid-2">
         <div class="subcard">
           <h3>Sintomas Observados</h3>
@@ -145,6 +145,101 @@
       </div>
     </section>
 
+
+    <!-- SIMULADOR INTERATIVO -->
+    <section id="simulador" class="card">
+      <h2>Simulador Interativo: Crise e Recuperação</h2>
+
+      <p>
+        Explore como a arquitetura responde a diferentes cenários
+        de operação durante a Black Friday.
+      </p>
+
+      <div class="simulador-controles">
+        <button type="button" data-cenario="normal">
+          Operação Normal
+        </button>
+
+        <button type="button" data-cenario="crise">
+          Simular Crise
+        </button>
+
+        <button type="button" data-cenario="recuperacao">
+          Simular Recuperação
+        </button>
+      </div>
+
+      <!-- DIAGRAMA DINAMICO DA ARQUITETURA -->
+      <div id="arquitetura-visual" class="arquitetura-visual normal"
+           aria-label="Visualização ilustrativa da infraestrutura">
+
+        <div class="arquitetura-clientes">
+          <span class="arquitetura-icone">👥</span>
+          <strong>Clientes Black Friday</strong>
+          <span id="trafego-label">Tráfego normal</span>
+        </div>
+
+        <div class="arquitetura-conexao">
+          <span class="pacote-requisicao"></span>
+        </div>
+
+        <div id="arquitetura-balanceador" class="arquitetura-balanceador" hidden>
+          <strong>⚖ Balanceador de carga</strong>
+          <small>Distribuição de requisições</small>
+        </div>
+
+        <div id="arquitetura-servidores" class="arquitetura-servidores">
+          <div id="servidor-monolito" class="arquitetura-servidor">
+            <strong>🖥 Servidor monolítico</strong>
+            <span id="servidor-status">Operacional</span>
+            <div class="cpu-trilha">
+              <div id="cpu-barra" class="cpu-barra"></div>
+            </div>
+            <small id="cpu-valor">CPU: 35%</small>
+          </div>
+
+          <div class="arquitetura-replicas" id="arquitetura-replicas" hidden>
+            <div class="arquitetura-servidor replica">
+              <strong>Instância 1</strong>
+              <span>Saudável</span>
+            </div>
+            <div class="arquitetura-servidor replica">
+              <strong>Instância 2</strong>
+              <span>Saudável</span>
+            </div>
+            <div class="arquitetura-servidor replica">
+              <strong>Instância 3</strong>
+              <span>Saudável</span>
+            </div>
+          </div>
+        </div>
+
+        <p id="arquitetura-mensagem" class="arquitetura-mensagem">
+          Requisições atendidas pelo servidor central.
+        </p>
+      </div>
+      <div id="simulador-resultado"
+           class="simulador-resultado"
+           role="status"
+           aria-live="polite">
+
+        <h3 id="simulador-titulo">Servidor em operação</h3>
+
+        <p id="simulador-descricao">
+          A aplicação funciona em um único servidor,
+          mas possui um ponto único de falha.
+        </p>
+
+        <p id="simulador-cpu">
+          CPU simulada: 35%
+        </p>
+      </div>
+
+      <p class="simulador-aviso">
+        Demonstração conceitual. Os valores apresentados são
+        ilustrativos e não representam métricas reais de infraestrutura.
+      </p>
+    </section>
     <!-- SECTION 4: DEVOPS & DOCKER -->
     <section id="tecnologias" class="card">
       <h2>4. Implementação DevOps & Publicação em Nuvem</h2>
@@ -172,5 +267,6 @@ CMD ["nginx", "-g", "daemon off;"]</code></pre>
     <p>Atividade Prática de Arquitetura de Software & DevOps &bull; Publicado via <strong>Render</strong> &bull; 2026</p>
   </footer>
 
+  <script src="script.js" defer></script>
 </body>
 </html>
